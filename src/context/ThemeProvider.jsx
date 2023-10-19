@@ -1,3 +1,4 @@
+'use client'
 import { createContext, useContext, useState, useCallback, useEffect, memo } from 'react'
 import { getTheme, disableAnimation, getSystemTheme } from './helpers'
 

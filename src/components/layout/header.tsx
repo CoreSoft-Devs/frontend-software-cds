@@ -1,9 +1,8 @@
 import React from "react";
+import Navbar from "./navbar";
 
-type Props = {};
-
-const Header = (props: Props) => {
-  return <div>Header</div>;
+const Header = () => {
+  return <Navbar />;
 };
 
 export default Header;
