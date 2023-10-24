@@ -7,7 +7,11 @@ const Copyright = () => {
     currentYear = new Date().getFullYear();
   }, []);
 
-  return <div className="dark:text-gray-400">© {currentYear}</div>;
+  return (
+    <div className="text-gray-500 dark:text-gray-400 text-sm">
+      © {currentYear}
+    </div>
+  );
 };
 
 export default Copyright;

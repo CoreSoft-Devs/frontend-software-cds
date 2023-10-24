@@ -5,7 +5,7 @@ import { getTheme, disableAnimation, getSystemTheme } from './helpers'
 const colorSchemes = ['light', 'dark']
 const MEDIA = '(prefers-color-scheme: dark)'
 const ThemeContext = createContext(undefined)
-const defaultContext = { setTheme: () => { }, themes: [] }
+const defaultContext = { setTheme: () => { }, themes: [], theme: '' }
 
 export const useTheme = () => useContext(ThemeContext) ?? defaultContext
 
@@ -54,7 +54,6 @@ const Theme = ({
     if (enableColorScheme) {
       const fallback = colorSchemes.includes(defaultTheme) ? defaultTheme : null
       const colorScheme = colorSchemes.includes(resolved) ? resolved : fallback
-      // @ts-ignore
       d.style.colorScheme = colorScheme
     }
 
