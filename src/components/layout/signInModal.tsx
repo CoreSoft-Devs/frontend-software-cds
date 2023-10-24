@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import Modal from "../shared/modal";
 import Image from "next/image";
 import Link from "next/link";
