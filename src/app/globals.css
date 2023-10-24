@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --border-bg: conic-gradient(from 180deg at 50% 50%, #e92a67 0deg, #a853ba 112.5deg, #2a8af6 228.75deg, rgba(42, 138, 246, 0) 360deg);
+}
+
+.border-animation::before {
+  content: "";
+  display: block;
+  background: var(--border-bg);
+  box-shadow: 0 0 40px 20px --var(--border-bg);
+  width: calc(100% * 1.41421356237);
+  padding-bottom: calc(100% * 1.41421356237);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /* transform: translate(-50%, -50%); */
+  border-radius: 100%;
+  z-index: 1;
+  animation: landing_spin 5s linear infinite;
+}
+
+@keyframes landing_spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(1turn);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+}
