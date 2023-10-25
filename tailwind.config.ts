@@ -16,10 +16,46 @@ const config: Config = {
       },
       animation: {
         pulse2: "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        marquee: "marquee 40s linear infinite",
+        "large-marquee": "largeMarquee 80s linear infinite",
+        marquee2: "marquee 40s linear infinite",
+        "large-marquee2": "largeMarquee2 80s linear infinite",
       },
       keyframes: {
         pulse: {
           "50%": { opacity: ".5" },
+        },
+        marquee: {
+          "0%": {
+            transform: "translateX(0)",
+          },
+          to: {
+            transform: "translateX(-400%)",
+          },
+        },
+        largeMarquee: {
+          "0%": {
+            transform: "translateX(0)",
+          },
+          "100%": {
+            transform: "translateX(-200%)",
+          },
+        },
+        marquee2: {
+          "0%": {
+            transform: "translateX(400%)",
+          },
+          "100%": {
+            transform: "translateX(0)",
+          },
+        },
+        largeMarquee2: {
+          "0%": {
+            transform: "translateX(200%)",
+          },
+          "100%": {
+            transform: "translateX(0)",
+          },
         },
       },
     },
