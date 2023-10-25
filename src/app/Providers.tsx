@@ -15,7 +15,7 @@ const Providers = ({ children }: Children) => {
       <Suspense fallback="...">
         <Header />
       </Suspense>
-      {children}
+      <main className="min-h-screen dark:bg-black/80 relative">{children}</main>
       <Footer />
     </ThemeProvider>
   );
