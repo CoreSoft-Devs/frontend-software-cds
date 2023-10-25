@@ -62,7 +62,6 @@ const CarouselImages = () => {
               width={1286}
               priority
               ref={imgRef}
-              quality={100}
               className="w-fit rounded-xl h-80 md:h-[calc(100vh-120px)] relative flex-shrink-0 flex object-cover lg:max-w-[calc(100vw-100px)] lg:max-h-[620px] 2xl:max-h-full"
             />
           </li>
