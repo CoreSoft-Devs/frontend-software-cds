@@ -36,7 +36,7 @@ const CarouselImages = () => {
     <article
       className="w-full h-full md:max-h-fit mx-auto relative"
       style={{
-        height: !isMobile && scrolled ? `${currentHeight + 600}px` : "",
+        height: !isMobile ? `${currentHeight + 600}px` : "",
       }}
     >
       <ul className="flex flex-row items-center snap-x snap-mandatory gap-4 px-4 w-full overflow-x-auto md:overflow-clip pb-5  md:h-[calc(100vh-64px)] transition-all md:px-6 md:gap-6 md:snap-none md:sticky md:top-[64px] scroll-smooth md:pb-0">
