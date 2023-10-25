@@ -5,3 +5,5 @@ export { default as Google } from "./google";
 export { default as LoadingDots } from "./loadingDots";
 export { default as Moon } from "./moon";
 export { default as Sun } from "./sun";
+export { default as Ticket } from "./ticket";
+export { default as Check } from "./check";

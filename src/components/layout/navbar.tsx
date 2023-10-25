@@ -30,9 +30,20 @@ const Navbar = () => {
               className="h-full w-fit min-w-fit select-none touch-none pointer-events-none object-contain"
             />
           </Link>
+          <div className="hidden sm:flex flex-row gap-6 dark:text-gray-400 w-full pl-8">
+            <Link className="hover:dark:text-white" href="/">
+              Inicio
+            </Link>
+            <Link className="hover:dark:text-white" href="/como-ser-parte">
+              Unirse
+            </Link>
+            <Link className="hover:dark:text-white" href="/#events">
+              Eventos
+            </Link>
+          </div>
           <button
             onClick={() => setShowSignModal(true)}
-            className="rounded-full border dark:border-white bg-black text-white dark:bg-white h-8 dark:text-black px-3 text-sm transition-all hover:dark:bg-gray-200 overflow-hidden whitespace-nowrap"
+            className="rounded-full border dark:border-white bg-black text-white dark:bg-white h-8 dark:text-black px-3 sm:px-7 text-sm transition-all hover:dark:bg-gray-200 overflow-hidden whitespace-nowrap flex items-center justify-center"
           >
             Iniciar Sesión
           </button>
