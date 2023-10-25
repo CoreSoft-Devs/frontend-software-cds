@@ -1,17 +1,26 @@
 import BtnAnimated from "@/components/button/btnAnimated";
-import CarouselImages from "@/components/carousel";
 import Events from "@/components/events";
+import Gallery from "@/components/gallery";
+import Paragraph from "@/components/paragraph";
 import Tooltip from "@/components/shared/tooltip";
 import TextBrand from "@/components/textBrand";
 import { getRandomNumber } from "@/utils/logic";
 import Image from "next/image";
 import Link from "next/link";
 
+const SubTitle = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <h2 className="text-4xl font-semibold lg:text-6xl pb-7 leading-normal lg:max-w-5xl">
+      {children}
+    </h2>
+  );
+};
+
 export default function Home() {
   return (
     <>
       <section className="w-full h-full pt-32 pb-20 px-5 max-w-4xl md:py-32 2xl:py-36 xl:px-0 mx-auto">
-        <BtnAnimated random={getRandomNumber(1, 3) - 1} />
+        <BtnAnimated page={false} random={getRandomNumber(1, 3) - 1} />
         <h1 className="bg-gradient-to-br dark:from-white dark:to-stone-500 from-black to-stone-500 bg-clip-text text-center font-display text-4xl font-bold tracking-[-0.02em] drop-shadow-sm [text-wrap:balance] md:text-7xl md:leading-[5rem] text-transparent">
           <Image
             src="/minor.png"
@@ -61,8 +70,63 @@ export default function Home() {
         <p>✨ Reuniones de Confraternización para miembros activos</p>
         <p>🚀 ¡Aquí, tu potencial es ilimitado!</p>
       </section>
-      <hr className="border-gray-500/30 pb-20 xl:py-0" />
-      <section
+      <hr className="border-gray-500/30" />
+      <section className="w-full py-32">
+        <article className="max-w-screen-xl flex flex-col justify-center lg:items-center mx-auto lg:text-center px-6">
+          <SubTitle>
+            Únase a una Comunidad de{" "}
+            <TextBrand className="md:text-yellow-500 md:dark:text-yellow-500">
+              Desarrolladores
+            </TextBrand>
+          </SubTitle>
+          <Paragraph>
+            Nos enfocamos principalmente en potenciar tus habilidades como
+            Desarrollador de Software. Desde nuevos conceptos hasta las últimas
+            tendencias, estamos aquí para apoyarnos mutuamente y resolver dudas.
+          </Paragraph>
+        </article>
+        <Gallery />
+        <article className="max-w-screen-xl flex flex-col justify-center lg:items-center mx-auto lg:text-center px-6">
+          <Paragraph>
+            Celebramos{" "}
+            <TextBrand className="md:text-green-500 md:dark:text-green-500">
+              reuniones semanales
+            </TextBrand>{" "}
+            donde los miembros comparten sus avances y lo que han aprendido
+            durante la semana.
+          </Paragraph>
+        </article>
+      </section>
+      <hr className="border-gray-500/30" />
+      <section className="w-full py-32 bg-gradient-to-t to-transparent via-transparent from-gray-500/10">
+        <article className="max-w-screen-xl flex flex-col justify-center lg:items-center mx-auto lg:text-center px-6">
+          <SubTitle>¿Quiénes somos?</SubTitle>
+          <div className="space-y-6">
+            <Paragraph>
+              Somos un espacio de colaboración donde compartimos{" "}
+              <TextBrand className="md:text-blue-500 md:dark:text-blue-500">
+                recursos académicos, Oportunidades laborales, Eventos
+              </TextBrand>{" "}
+              y noticias relevantes en el mundo del desarrollo. Juntos, creamos
+              un ambiente propicio para el aprendizaje y el networking.
+            </Paragraph>
+            <Paragraph>
+              Si eres un apasionado del código, la innovación y el desarrollo de
+              software, únete a nosotros y sé parte de esta emocionante
+              travesía.
+              <TextBrand className="md:text-red-500 md:dark:text-red-500">
+                ¡Juntos llevaremos nuestras habilidades al siguiente nivel!
+              </TextBrand>
+            </Paragraph>
+            <BtnAnimated
+              page={true}
+              href="/como-ser-parte"
+              content="¿Comó ser parte de CDS?"
+            />
+          </div>
+        </article>
+      </section>
+      {/* <section
         className="pb-32 xl:py-32 xl:px-0 flex flex-col justify-center md:flex-row relative text-base
       [&>p]:md:dark:bg-black/80 [&>p]:md:bg-white/80 [&>p]:text-gray-800 [&>p]:dark:text-gray-300 [&>p]:rounded-xl [&>p]:md:py-6 [&>p]:px-6 [&>p]:md:px-8 gap-4"
       >
@@ -151,8 +215,8 @@ export default function Home() {
             <Image src="/logo.png" width={40} height={30} alt="logo cds" />
           </span>
         </p>
-      </section>
-      <hr id="events" className="border-gray-500/30" />
+      </section> */}
+      <hr className="border-gray-500/30" />
       <Events />
     </>
   );
