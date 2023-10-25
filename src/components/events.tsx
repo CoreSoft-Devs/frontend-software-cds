@@ -110,42 +110,62 @@ const Events = () => {
   }, []);
 
   return (
-    <section className="w-full max-w-screen-xl xl:px-0 mx-auto relativ py-32">
+    <section
+      id="events"
+      className="w-full max-w-screen-xl xl:px-0 mx-auto relativ py-32"
+    >
       <h2 className="pl-6 pb-6 text-xl lg:text-2xl xl:text-3xl">
         Próximos Eventos
       </h2>
       <ul className="flex flex-row gap-6 px-6 pb-6 overflow-x-auto snap-x snap-mandatory relative">
-        {upcomingEvents?.map((event, index) => (
-          <li
-            key={index}
-            className="snap-center min-w-[280px] sm:min-w-[600px] max-w-sm md:max-w-2xl flex flex-col border border-dashed border-gray-500/30 rounded-xl overflow-hidden dark:hover:bg-gray-500/30 hover:bg-gray-500/30 dark:hover:border-white hover:border-gray-500 transition-all cursor-pointer shadow-md hover:shadow-lg [&>div]:dark:hover:border-white [&>div]:hover:border-gray-500
+        {upcomingEvents ? (
+          upcomingEvents?.map((event, index) => (
+            <li
+              key={index}
+              className="snap-center min-w-[280px] sm:min-w-[600px] max-w-sm md:max-w-2xl flex flex-col border border-dashed border-gray-500/30 rounded-xl overflow-hidden dark:hover:bg-gray-500/30 hover:bg-gray-500/30 dark:hover:border-white hover:border-gray-500 transition-all cursor-pointer shadow-md hover:shadow-lg [&>div]:dark:hover:border-white [&>div]:hover:border-gray-500
             sm:flex-row sm:max-h-[318px]"
+            >
+              <figure className="m-0 p-0 w-full aspect-square overflow-hidden sm:min-w-[318px] relative">
+                <Image
+                  src={event.images[0]}
+                  alt={event.title}
+                  width={280}
+                  height={278}
+                  className="w-full h-full object-cover transition-transform"
+                />
+              </figure>
+              <div className="flex flex-col px-3 py-4 border-t sm:border-l border-gray-500/30 border-dashed relative transition-colors justify-between gap-3">
+                <span className="dark:text-gray-400 text-sm">{event.date}</span>
+                <span className="border border-red-500 w-fit px-3 rounded-full text-red-500 bg-red-500/20">
+                  {event.type}
+                </span>
+                <h3 className="text-lg md:text-xl font-extrabold">
+                  {event.title}
+                </h3>
+                <Description description={event.description} />
+                <span className="flex flex-row items-center justify-center gap-3 text-l]">
+                  <Ticket />
+                  Consigue tu Ticket
+                </span>
+              </div>
+            </li>
+          ))
+        ) : (
+          <li
+            className="snap-center w-full sm:min-w-[600px] max-w-sm md:max-w-2xl flex flex-col border border-dashed border-gray-500/30 rounded-xl overflow-hidden transition-all shadow-md
+          sm:flex-row sm:max-h-[318px] animate-pulse"
           >
-            <figure className="m-0 p-0 w-full aspect-square overflow-hidden sm:min-w-[318px] relative">
-              <Image
-                src={event.images[0]}
-                alt={event.title}
-                width={280}
-                height={278}
-                className="w-full h-full object-cover transition-transform"
-              />
-            </figure>
-            <div className="flex flex-col px-3 py-4 border-t sm:border-l border-gray-500/30 border-dashed relative transition-colors justify-between gap-3">
-              <span className="dark:text-gray-400 text-sm">{event.date}</span>
-              <span className="border border-red-500 w-fit px-3 rounded-full text-red-500 bg-red-500/20">
-                {event.type}
-              </span>
-              <h3 className="text-lg md:text-xl font-extrabold">
-                {event.title}
-              </h3>
-              <Description description={event.description} />
-              <span className="flex flex-row items-center justify-center gap-3 text-l]">
-                <Ticket />
-                Consigue tu Ticket
-              </span>
+            <div className="m-0 p-0 w-full aspect-square overflow-hidden sm:w-[50%] relative" />
+            <div className="flex flex-col h-[268px] px-6 py-6 border-t sm:border-l border-gray-500/30 border-dashed relative transition-colors justify-around sm:w-[50%] sm:h-full">
+              <span className="bg-gray-500/30 rounded-full h-2 w-[35%]" />
+              <span className="bg-gray-500/30 rounded-full h-2 w-[20%]" />
+              <span className="bg-gray-500/30 rounded-full h-2 w-[80%]" />
+              <span className="bg-gray-500/30 rounded-full h-2 w-[]" />
+              <span className="bg-gray-500/30 rounded-full h-2 w-[]" />
+              <span className="bg-gray-500/30 rounded-full h-2 w-[50%] mx-auto" />
             </div>
           </li>
-        ))}
+        )}
       </ul>
       <h2 className="pl-6 pb-6 text-xl lg:text-2xl xl:text-3xl">
         Eventos Pasados
