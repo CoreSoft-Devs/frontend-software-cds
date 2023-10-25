@@ -1,4 +1,5 @@
 import useMediaQuery from "@/hooks/useMediaQuery";
+import * as Dialog from "@radix-ui/react-dialog";
 import React, { Dispatch, SetStateAction } from "react";
 import { Drawer } from "vaul";
 
@@ -26,7 +27,20 @@ const Modal = ({ children, setShowModal, showModal }: Props) => {
       </Drawer.Root>
     );
   }
-  return <div>modal</div>;
+  return (
+    <Dialog.Root open={showModal} onOpenChange={setShowModal}>
+      <Dialog.Portal>
+        <Dialog.Overlay className="fixed inset-0 z-40 bg-gray-100 dark:bg-black/50 bg-opacity-50 backdrop-blur-sm transform transition-all" />
+        <Dialog.Content
+          onOpenAutoFocus={(e) => e.preventDefault()}
+          onCloseAutoFocus={(e) => e.preventDefault()}
+          className="fixed inset-0 z-50 m-auto max-h-fit w-full max-w-md overflow-hidden border border-gray-500/30 bg-white dark:bg-black shadow-xl md:rounded-xl"
+        >
+          {children}
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
+  );
 };
 
 export default Modal;
