@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Facebook, Instagram } from "../shared/icons";
 import Link from "next/link";
-import Paragraph from "../paragraph";
+import Paragraph from "../layout/paragraph";
 
 const socialMedia = [
   {
