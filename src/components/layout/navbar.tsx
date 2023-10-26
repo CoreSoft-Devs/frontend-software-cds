@@ -12,8 +12,10 @@ const Navbar = () => {
     <>
       <SignInModal />
       <div
-        className={`fixed top-0 w-full flex justify-center bg-white/70 dark:bg-black/70 backdrop-blur-xl dark:border-gray-500/30 ${
-          scrolled ? "border-b" : "border-none"
+        className={`fixed top-0 w-full flex justify-center backdrop-blur-3xl dark:border-gray-500/30 ${
+          scrolled
+            ? "border-b bg-white/70 dark:bg-black/70 transition-all"
+            : "border-none"
         } z-20 transition-all duration-75`}
       >
         <nav className="px-6 flex h-16 max-w-screen-xl items-center justify-between w-full overflow-hidden">
@@ -30,14 +32,20 @@ const Navbar = () => {
               className="h-full w-fit min-w-fit select-none touch-none pointer-events-none object-contain"
             />
           </Link>
-          <div className="hidden sm:flex flex-row gap-6 dark:text-gray-400 w-full pl-8">
-            <Link className="hover:dark:text-white" href="/">
+          <div className="hidden sm:flex flex-row gap-6 dark:text-gray-400 text-gray-600 w-full pl-8 [&>a]:hover:transition-all">
+            <Link className="hover:dark:text-white hover:text-black" href="/">
               Inicio
             </Link>
-            <Link className="hover:dark:text-white" href="/como-ser-parte">
+            <Link
+              className="hover:dark:text-white hover:text-black"
+              href="/como-ser-parte"
+            >
               Unirse
             </Link>
-            <Link className="hover:dark:text-white" href="/#events">
+            <Link
+              className="hover:dark:text-white hover:text-black"
+              href="/#events"
+            >
               Eventos
             </Link>
           </div>

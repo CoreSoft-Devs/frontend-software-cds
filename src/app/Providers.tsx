@@ -11,7 +11,7 @@ type Children = {
 const Providers = ({ children }: Children) => {
   return (
     <ThemeProvider>
-      <div className="z-0 fixed h-screen w-full bg-gradient-to-br dark:from-black from-white via-white dark:via-black to-cyan-100 dark:to-rose-950 opacity-50 dark:opacity-50" />
+      <div className="z-0 fixed h-screen w-full bg-gradient-to-br dark:from-black from-white via-white dark:via-black to-cyan-100 dark:to-rose-950 opacity-50 dark:opacity-30" />
       <Suspense fallback="...">
         <Header />
       </Suspense>
