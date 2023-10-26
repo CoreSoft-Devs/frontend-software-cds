@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { Ticket } from "./shared/icons";
+import SubTitle from "./layout/subTitle";
 
 type Event = {
   type: string;
@@ -112,12 +113,15 @@ const Events = () => {
   return (
     <section
       id="events"
-      className="w-full max-w-screen-xl xl:px-0 mx-auto relativ py-32"
+      className="w-full max-w-screen-xl xl:px-0 mx-auto relativ py-20 md:py-32"
     >
-      <h2 className="pl-6 pb-6 text-xl lg:text-2xl xl:text-3xl">
+      {/* <h2 className="pl-6 pb-6 text-xl lg:text-2xl xl:text-3xl">
         Próximos Eventos
-      </h2>
-      <ul className="flex flex-row gap-6 px-6 pb-6 overflow-x-auto snap-x snap-mandatory relative">
+      </h2> */}
+      <div className="max-w-screen-xl lg:text-center flex lg:justify-center lg:items-center px-6">
+        <SubTitle>Próximos Eventos</SubTitle>
+      </div>
+      <ul className="flex flex-row sm:justify-center gap-6 px-6 lg:py-10 lg:pb-32 overflow-x-auto snap-x snap-mandatory relative">
         {upcomingEvents ? (
           upcomingEvents?.map((event, index) => (
             <li
@@ -167,10 +171,13 @@ const Events = () => {
           </li>
         )}
       </ul>
-      <h2 className="pl-6 pb-6 text-xl lg:text-2xl xl:text-3xl">
+      {/* <h2 className="pl-6 pb-6 text-xl lg:text-2xl xl:text-3xl">
         Eventos Pasados
-      </h2>
-      <ul className="flex flex-row gap-6 px-6 pb-6 overflow-x-auto snap-x snap-mandatory relative">
+      </h2> */}
+      <div className="max-w-screen-xl lg:text-center flex lg:justify-center lg:items-center px-6">
+        <SubTitle>Eventos Pasados</SubTitle>
+      </div>
+      <ul className="flex flex-row sm:justify-center gap-6 px-6 lg:py-10 overflow-x-auto snap-x snap-mandatory relative">
         {pastEvents?.map((event, index) => (
           <li
             key={index}
