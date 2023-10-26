@@ -29,7 +29,7 @@ const Gallery = () => {
         {images.map((img, index) => (
           <li
             key={index}
-            className="flex justify-center px-5 min-w-[50%] lg:min-w-[25%] h-auto rounded-xl relative overflow-hidden odd:rotate-3 even:-rotate-3 hover:rotate-0 hover:scale-105 transition-all brightness-90 hover:brightness-105"
+            className="flex justify-center px-5 min-w-[75%] md:min-w-[50%] lg:min-w-[25%] h-auto rounded-xl relative overflow-hidden odd:rotate-3 even:-rotate-3 hover:rotate-0 hover:scale-105 transition-all brightness-90 hover:brightness-105"
           >
             <Image
               src={img}
@@ -38,7 +38,7 @@ const Gallery = () => {
               height={480}
               priority
               quality={100}
-              className="bg-gray-500/30 min-w-[50%] h-auto aspect-[4/3] object-cover rounded-xl pointer-events-none select-none"
+              className="bg-gray-500/30 min-w-[75%] h-auto aspect-[4/3] object-cover rounded-xl pointer-events-none select-none"
             />
           </li>
         ))}
@@ -50,7 +50,7 @@ const Gallery = () => {
         {images.map((img, index) => (
           <li
             key={index}
-            className="flex justify-center px-5 min-w-[50%] lg:min-w-[25%] h-auto rounded-xl relative overflow-hidden odd:rotate-3 even:-rotate-3 hover:rotate-0 hover:scale-105 transition-all brightness-90 hover:brightness-105"
+            className="flex justify-center px-5 min-w-[75%] md:min-w-[50%] lg:min-w-[25%] h-auto rounded-xl relative overflow-hidden odd:rotate-3 even:-rotate-3 hover:rotate-0 hover:scale-105 transition-all brightness-90 hover:brightness-105"
           >
             <Image
               src={img}
@@ -59,7 +59,7 @@ const Gallery = () => {
               height={480}
               quality={100}
               priority
-              className="bg-gray-500/30 min-w-[50%] h-auto aspect-[4/3] object-cover rounded-xl pointer-events-none select-none"
+              className="bg-gray-500/30 min-w-[75%] h-auto aspect-[4/3] object-cover rounded-xl pointer-events-none select-none"
             />
           </li>
         ))}
