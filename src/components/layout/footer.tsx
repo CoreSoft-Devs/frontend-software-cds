@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { Suspense } from "react";
-import Copyright from "../copyright";
+import Copyright from "./copyright";
 import { Facebook, Github, Instagram } from "../shared/icons";
 import dynamic from "next/dynamic";
 
