@@ -85,7 +85,7 @@ export default function Home() {
       <section className="w-full py-20 md:py-32">
         <article className="max-w-screen-xl flex flex-col justify-center lg:items-center mx-auto lg:text-center px-6">
           <SubTitle>
-            Únase a una Comunidad de{" "}
+            Únanse a una Comunidad de{" "}
             <TextBrand className="md:text-yellow-500 md:dark:text-yellow-500">
               Desarrolladores
             </TextBrand>
