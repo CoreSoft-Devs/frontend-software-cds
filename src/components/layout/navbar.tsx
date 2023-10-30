@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { useSignInModal } from "@/hooks/useSignInModal";
 import useScroll from "@/hooks/useScroll";
