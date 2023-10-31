@@ -8,7 +8,8 @@ const useThemes = (): {
   themes: string[];
 } => {
   const isThemeDark =
-    typeof window !== "undefined" &&
+    window &&
+    window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   const { theme, setTheme, themes } = useTheme();
