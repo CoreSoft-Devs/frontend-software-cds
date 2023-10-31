@@ -20,7 +20,7 @@ Antes de constribuir al desarrollo de este proyecto debera seguir el formato de 
 
 ## CONTRIBUYENDO 👐
 Leer antes de contribuir.
-[CONTRIBUYENDO]()
+[CONTRIBUYENDO](https://github.com/LuiSauter/cds/blob/main/CONTRIBUTING.md)
 
-## CÓDIGO DE CONDUCTA
-[CÓDIGO DE CONDUCTA]()
+## CÓDIGO DE CONDUCTA 🚨
+[CÓDIGO DE CONDUCTA](https://github.com/LuiSauter/cds/blob/main/CODE_OF_CONDUCT.md)
