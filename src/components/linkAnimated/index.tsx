@@ -35,7 +35,7 @@ const Container = ({
   );
 };
 
-const BtnAnimated = ({
+const LinkAnimated = ({
   random = 0,
   page,
   href,
@@ -57,7 +57,7 @@ const BtnAnimated = ({
           onMouseEnter={() => setIsOver(true)}
           onMouseLeave={() => setIsOver(false)}
         >
-          <Paragraph> {content}</Paragraph>
+          <Paragraph>{content}</Paragraph>
         </Link>
       </Container>
     );
@@ -79,4 +79,4 @@ const BtnAnimated = ({
   );
 };
 
-export default BtnAnimated;
+export default LinkAnimated;

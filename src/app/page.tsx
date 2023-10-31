@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getRandomNumber } from "@/utils/logic";
 
-import BtnAnimated from "@/components/button/btnAnimated";
+import LinkAnimated from "@/components/linkAnimated";
 import Events from "@/components/events";
 import Gallery from "@/components/gallery";
 import Paragraph from "@/components/layout/paragraph";
@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <section className="w-full h-full pt-32 pb-20 px-5 max-w-4xl md:py-32 2xl:py-36 xl:px-0 mx-auto">
-        <BtnAnimated page={false} random={getRandomNumber(1, 3) - 1} />
+        <LinkAnimated page={false} random={getRandomNumber(1, 3) - 1} />
         <div className="absolute top-[64px] left-0 right-0 flex justify-center items-center blur-[150px]">
           <div className="bg-gradient-conic from-indigo-500 via-purple-500 to-pink-500  dark:from-indigo-500 dark:via-purple-500 dark:to-pink-500  h-20 w-[50%] rounded-full opacity-50" />
         </div>
@@ -129,7 +129,7 @@ export default function Home() {
                 ¡Juntos llevaremos nuestras habilidades al siguiente nivel!
               </TextBrand>
             </Paragraph>
-            <BtnAnimated
+            <LinkAnimated
               page={true}
               href="/como-ser-parte"
               content="¿Comó ser parte de CDS?"
