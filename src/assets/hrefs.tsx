@@ -1,10 +1,10 @@
 import { Github, Instagram, Facebook } from "../components/shared/icons";
 
 export const HREF_HOME = "/";
-export const HREF_EVENTS = "/eventos";
-export const HREF_CONTACT = "/contacto";
-export const HREF_ABOUT = "/acerca-de-nosotros";
-export const HREF_JOIN = "/unirse";
+export const HREF_EVENTS = "/cds/eventos";
+export const HREF_CONTACT = "/cds/contacto";
+export const HREF_ABOUT = "/cds/acerca-de-nosotros";
+export const HREF_JOIN = "/cds/unirse";
 
 const hrefs = [
   {
