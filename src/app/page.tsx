@@ -13,7 +13,7 @@ import { Check } from "@/components/shared/icons";
 
 export default function Home() {
   return (
-    <>
+    <main className="min-h-screen dark:bg-black/80 relative">
       <section className="w-full h-full pt-32 pb-20 px-5 max-w-4xl md:py-32 2xl:py-36 xl:px-0 mx-auto">
         <LinkAnimated page={false} random={getRandomNumber(1, 3) - 1} />
         <div className="absolute top-[64px] left-0 right-0 flex justify-center items-center blur-[150px]">
@@ -139,6 +139,6 @@ export default function Home() {
       </section>
       <hr className="border-gray-500/30" />
       <Events />
-    </>
+    </main>
   );
 }
