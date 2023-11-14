@@ -4,13 +4,14 @@ import { useSignInModal } from "@/hooks/useSignInModal";
 import useScroll from "@/hooks/useScroll";
 import Link from "next/link";
 import Image from "next/image";
-import hrefs from "@/assets/hrefs";
+import hrefs, { HREF_ABOUT, HREF_CONTACT } from "@/assets/hrefs";
 import Dropdown from "@/components/shared/dropdown";
 
 const Navbar = () => {
   const [openPopover, setOpenPopover] = useState(false);
   const { setShowSignModal, SignInModal } = useSignInModal();
   const { scrolled } = useScroll(50);
+
   return (
     <>
       <SignInModal />
@@ -39,7 +40,7 @@ const Navbar = () => {
             {hrefs.map(
               (href, index) =>
                 !href.icon &&
-                !["/contacto", "/acerca-de-nosotros"].includes(href.href) && (
+                ![HREF_CONTACT, HREF_ABOUT].includes(href.href) && (
                   <li
                     key={index}
                     className="hover:dark:text-white hover:text-black flex items-center"
@@ -58,22 +59,19 @@ const Navbar = () => {
                   <div className="w-full rounded-md bg-white dark:bg-black p-2 sm:w-40">
                     <Link
                       href="/contacto"
-                      className="flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-500/10 dark:hover:bg-gray-300/30 active:bg-gray-200"
+                      className="flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-lightHover dark:hover:bg-darkHover active:bg-gray-200"
                     >
                       Contacto
                     </Link>
                     <Link
-                      href="/acerca-de-nosotros"
-                      className="flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-500/10 dark:hover:bg-gray-300/30 active:bg-gray-200"
+                      href={HREF_ABOUT}
+                      className="flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-lightHover dark:hover:bg-darkHover active:bg-gray-200"
                     >
                       Acerca de Nosotros
                     </Link>
-                    <Link
-                      href="/desarrollado-por"
-                      className="flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-500/10 dark:hover:bg-gray-300/30 active:bg-gray-200"
-                    >
+                    <button className="flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-lightHover dark:hover:bg-darkHover active:bg-gray-200">
                       Desarrollado por
-                    </Link>
+                    </button>
                     <button
                       disabled={true}
                       className="flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all"
@@ -86,7 +84,7 @@ const Navbar = () => {
                 <button
                   onClick={() => setOpenPopover(!openPopover)}
                   className={`${
-                    openPopover && "text-white"
+                    openPopover && "dark:text-white"
                   } flex gap-4 w-fit items-center justify-between transition-all hover:text-black dark:hover:text-white`}
                 >
                   <span>Nosotros</span>
