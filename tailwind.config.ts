@@ -9,6 +9,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        darkHover: "#6b72804d",
+        lightHover: "#6b72801a",
+        border: "#6b72804d",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
