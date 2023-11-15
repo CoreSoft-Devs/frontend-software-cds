@@ -13,7 +13,7 @@ const Providers = ({ children }: Children) => {
     <ThemeProvider>
       <div className="z-0 fixed h-screen w-full bg-gradient-to-br dark:from-black from-white via-white dark:via-black to-cyan-100 dark:to-rose-950 opacity-50 dark:opacity-30" />
       <Header />
-      <main className="min-h-screen dark:bg-black/80 relative">{children}</main>
+      {children}
       <Footer />
     </ThemeProvider>
   );

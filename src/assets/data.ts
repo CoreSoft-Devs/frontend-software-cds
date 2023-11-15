@@ -11,7 +11,7 @@ export type Event = {
   attendees: number;
 };
 
-export const eventsData = [
+export const eventsData: Event[] = [
   {
     type: "Conferencia",
     title: "Evento de Lanzamiento Demo",

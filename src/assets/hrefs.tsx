@@ -1,8 +1,10 @@
 import { Github, Instagram, Facebook } from "../components/shared/icons";
 
 export const HREF_HOME = "/";
-export const HREF_UNIRSE = "/unirse";
-export const HREF_EVENTOS = "/#eventos";
+export const HREF_EVENTS = "/cds/eventos";
+export const HREF_CONTACT = "/cds/contacto";
+export const HREF_ABOUT = "/cds/acerca-de-nosotros";
+export const HREF_JOIN = "/cds/unirse";
 
 const hrefs = [
   {
@@ -24,8 +26,10 @@ const hrefs = [
     title: "Facebook Comunidad de Desarrolladores de Software",
   },
   { href: HREF_HOME, name: "Inicio", icon: false },
-  { href: HREF_UNIRSE, name: "Unirse", icon: false },
-  { href: HREF_EVENTOS, name: "Eventos", icon: false },
+  { href: HREF_JOIN, name: "Unirse", icon: false },
+  { href: HREF_EVENTS, name: "Eventos", icon: false },
+  { href: HREF_CONTACT, name: "Contacto", icon: false },
+  { href: HREF_ABOUT, name: "Acerca de nosotros", icon: false },
 ];
 
 export default hrefs;
