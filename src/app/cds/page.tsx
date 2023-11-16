@@ -57,7 +57,7 @@ const ArticleContent = ({
   title: string;
 }) => {
   const externalRef = useRef(null);
-  const { isNearScreen } = useNearScreen({
+  useNearScreen({
     externalRef: externalRef,
     distance: "-100px",
   });

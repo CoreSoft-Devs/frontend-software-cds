@@ -58,16 +58,16 @@ const Navbar = () => {
                 content={
                   <div className="w-full rounded-md bg-white dark:bg-black p-2 sm:w-40">
                     <Link
-                      href="/contacto"
-                      className="flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-lightHover dark:hover:bg-darkHover active:bg-gray-200"
-                    >
-                      Contacto
-                    </Link>
-                    <Link
                       href={HREF_ABOUT}
                       className="flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-lightHover dark:hover:bg-darkHover active:bg-gray-200"
                     >
                       Acerca de Nosotros
+                    </Link>
+                    <Link
+                      href={HREF_CONTACT}
+                      className="flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-lightHover dark:hover:bg-darkHover active:bg-gray-200"
+                    >
+                      Contacto
                     </Link>
                     <button className="flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-lightHover dark:hover:bg-darkHover active:bg-gray-200">
                       Desarrollado por
