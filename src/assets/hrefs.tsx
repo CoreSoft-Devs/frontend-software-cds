@@ -5,6 +5,8 @@ export const HREF_EVENTS = "/cds/eventos";
 export const HREF_CONTACT = "/cds/contacto";
 export const HREF_ABOUT = "/cds";
 export const HREF_JOIN = "/cds/unirse";
+export const HREF_LEVELS = '/cds/niveles'
+export const HREF_REGULATION = '/cds/reglamento'
 
 const hrefs = [
   {
@@ -27,6 +29,7 @@ const hrefs = [
   },
   { href: HREF_HOME, name: "Inicio", icon: false },
   { href: HREF_JOIN, name: "Unirse", icon: false },
+  { href: HREF_LEVELS, name: "Niveles", icon: false },
   { href: HREF_EVENTS, name: "Eventos", icon: false },
   { href: HREF_CONTACT, name: "Contacto", icon: false },
   { href: HREF_ABOUT, name: "Acerca de nosotros", icon: false },
