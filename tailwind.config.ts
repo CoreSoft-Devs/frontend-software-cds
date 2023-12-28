@@ -6,10 +6,15 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/assets/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
+        primaryDark: "#000000",
+        secondaryDark: "#111111",
+        primaryLight: "#ffffff",
+        secondaryLight: "#f1f5f9",
         darkHover: "#6b72804d",
         lightHover: "#6b72801a",
         border: "#6b72804d",
