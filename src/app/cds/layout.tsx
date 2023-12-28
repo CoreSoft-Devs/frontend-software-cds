@@ -1,9 +1,15 @@
+'use client'
+import { HREF_CONTACT, HREF_EVENTS } from "@/assets/hrefs";
 import Navigation from "@/components/layout/cds/navigation";
 import TableOfContent from "@/components/layout/cds/table-content";
 import { TableofcontentStateProvider } from "@/context/TableContentContext";
-import React from "react";
+import { useParams, usePathname } from "next/navigation";
 
+const notTableOfContent = [HREF_CONTACT, HREF_EVENTS]
 const Layout = ({ children }: { children: React.ReactNode }) => {
+  const pathname = usePathname()
+  const params = useParams()
+
   return (
     <div className="min-h-screen flex pt-16 max-w-screen-xl justify-center w-full mx-auto">
       <TableofcontentStateProvider>
@@ -14,12 +20,14 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             </div>
           </div>
         </aside>
-        <main className="flex flex-col md:flex w-full h-full px-6 md:px-12 py-4">
+        <main className="flex flex-col md:flex w-full h-full px-6 xl:px-12 py-4 pb-12 z-0">
           {children}
         </main>
-        <nav className="hidden xl:flex min-w-[256px] w-64 h-full sticky top-16 right-0">
-          <TableOfContent />
-        </nav>
+        {!notTableOfContent.includes(params.id ? pathname.substring(0, HREF_EVENTS.length) : pathname) &&
+          <nav className="hidden xl:flex min-w-[256px] w-64 h-full sticky top-16 right-0">
+            <TableOfContent />
+          </nav>
+        }
       </TableofcontentStateProvider>
     </div>
   );
