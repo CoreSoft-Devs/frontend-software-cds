@@ -1,5 +1,5 @@
 'use client'
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import { useSignInModal } from "@/hooks/useSignInModal";
 import useScroll from "@/hooks/useScroll";
 import Link from "next/link";
@@ -13,7 +13,7 @@ const Navbar = () => {
   const { SignInModal, setShowSignModal } = useSignInModal();
   const { scrolled } = useScroll(50);
 
-  const {status, data} = useSession()
+  const { status, data } = useSession()
 
   return (
     <>
@@ -68,7 +68,7 @@ const Navbar = () => {
             onClick={() => setShowSignModal(true)}
             className="rounded-full border dark:border-white bg-black text-white dark:bg-white h-8 dark:text-black px-3 sm:px-7 text-sm transition-all hover:dark:bg-gray-200 overflow-hidden whitespace-nowrap flex items-center justify-center"
           >
-            {status === 'loading' ? <LoadingDots /> : 'Iniciar Sesión' }
+            {status === 'loading' ? <LoadingDots /> : 'Iniciar Sesión'}
           </button>}
         </nav>
       </div>
