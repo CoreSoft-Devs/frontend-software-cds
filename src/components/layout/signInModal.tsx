@@ -47,7 +47,7 @@ const SignInModal = ({ showSignInModal, setShowSignInModal }: props) => {
           </> : (
             <button className="mx-auto w-fit px-6 py-2 rounded-2xl bg-red-500 text-white hover:bg-red-400"
               onClick={() => {
-                signOut()
+                signOut({ redirect: true })
                 setShowSignInModal(false)
               }}
             >Cerrar sesión</button>

@@ -28,6 +28,7 @@ export default function Home() {
               alt="logo cds"
               fill
               priority
+              quality={50}
               className="w-fit object-contain pointer-events-none"
             />
           </figure>
@@ -37,6 +38,7 @@ export default function Home() {
               src="/major.png"
               alt="logo cds"
               fill
+              quality={50}
               priority
               className="w-fit object-contain pointer-events-none"
             />
