@@ -58,7 +58,7 @@ const Theme = ({
     }
 
     enable?.()
-  }, [])
+  }, [attribute, attrs, defaultTheme, disableTransitionOnChange, enableColorScheme, enableSystem, value])
 
   const setTheme = useCallback(
     theme => {
@@ -70,7 +70,7 @@ const Theme = ({
         // Unsupported
       }
     },
-    [forcedTheme]
+    [storageKey]
   )
 
   const handleMediaQuery = useCallback((e) => {
@@ -81,7 +81,7 @@ const Theme = ({
       applyTheme('system')
     }
   },
-    [theme, forcedTheme]
+    [theme, enableSystem, forcedTheme, applyTheme]
   )
 
   // Always listen to System preference
@@ -109,12 +109,12 @@ const Theme = ({
 
     window.addEventListener('storage', handleStorage)
     return () => window.removeEventListener('storage', handleStorage)
-  }, [setTheme])
+  }, [defaultTheme, setTheme, storageKey])
 
   // Whenever theme or forcedTheme changes, apply it
   useEffect(() => {
     applyTheme(forcedTheme ?? theme)
-  }, [forcedTheme, theme])
+  }, [applyTheme, forcedTheme, theme])
 
   return (
     <ThemeContext.Provider
