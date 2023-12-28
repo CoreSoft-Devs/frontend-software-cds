@@ -9,15 +9,15 @@ export function useSignInModal() {
       <SignInModal
         showSignInModal={showSignModal}
         setShowSignInModal={setShowSignModal}
-      />
+        />
     );
-  }, [showSignModal, setShowSignModal]);
+  }, [showSignModal]);
 
   return useMemo(
     () => ({
       SignInModal: signInModalCallback,
-      setShowSignModal,
+      setShowSignModal
     }),
-    [setShowSignModal, signInModalCallback]
+    [signInModalCallback]
   );
 }

@@ -66,14 +66,14 @@ const LinkAnimated = ({
   return (
     <Container isOver={isOver}>
       <a
-        href={socialMedia[random].href}
+        href={href ? href : socialMedia[random].href}
         target="_blank"
         className="border dark:border-gray-500/30 hover:text-gray-600 text-gray-500 dark:text-gray-400 text-xs sm:text-sm py-2 px-6 rounded-full z-10 bg-white dark:bg-black flex flex-row items-center gap-2 whitespace-nowrap overflow-hidden w-fit"
         onMouseEnter={() => setIsOver(true)}
         onMouseLeave={() => setIsOver(false)}
       >
-        Síguenos en
-        {socialMedia[random].icon} {socialMedia[random].name}
+        {content}
+        {!href && <>Síguenos en {socialMedia[random].icon} {socialMedia[random].name}</>}
       </a>
     </Container>
   );

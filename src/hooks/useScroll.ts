@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
+'use client'
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 export default function useScroll(threshold?: number): {
   scrolled: boolean;
@@ -27,5 +28,7 @@ export default function useScroll(threshold?: number): {
     };
   }, []);
 
-  return { scrolled, scrollY };
+  const memoizedValues = useMemo(() => ({ scrolled, scrollY }), [scrollY, scrolled])
+
+  return memoizedValues;
 }

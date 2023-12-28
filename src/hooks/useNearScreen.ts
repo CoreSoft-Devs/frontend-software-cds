@@ -1,6 +1,7 @@
 import {
   MutableRefObject,
   RefObject,
+  useCallback,
   useEffect,
   useRef,
   useState,
@@ -21,12 +22,8 @@ const useNearScreen = ({ distance, externalRef, once }: Props) => {
   const [isNearScreen, setIsNearScreen] = useState<boolean>(false);
   const fromRef = useRef();
 
-  useEffect(() => {
-    let observer: IntersectionObserver;
-
-    const element = externalRef ? externalRef.current : fromRef.current;
-
-    const onChange = (
+  const onChange = useCallback(
+    (
       entries: IntersectionObserverEntry[],
       observer: IntersectionObserver
     ) => {
@@ -39,24 +36,26 @@ const useNearScreen = ({ distance, externalRef, once }: Props) => {
       } else {
         !once && setIsNearScreen(false);
       }
-    };
+    },
+    [handleCurrentTitle, once],
+  )
 
-    const newLocal = "intersection-observer";
-    Promise.resolve(
-      typeof IntersectionObserver !== "undefined"
-        ? IntersectionObserver
-        : import(newLocal)
-    ).then(() => {
+  useEffect(() => {
+    let observer: IntersectionObserver;
+
+    const element = externalRef ? externalRef.current : fromRef.current;
+
+    if (typeof IntersectionObserver !== "undefined") {
       observer = new IntersectionObserver(onChange, {
         rootMargin: distance,
         root: null,
         threshold: 0.9,
       });
       element && observer.observe(element);
-    });
+    }
 
     return () => observer && observer.disconnect();
-  }, [distance, externalRef, handleCurrentTitle, once]);
+  }, [distance, externalRef, handleCurrentTitle, onChange, once]);
 
   return { isNearScreen, fromRef };
 };
