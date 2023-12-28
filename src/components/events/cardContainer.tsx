@@ -9,24 +9,23 @@ type Props = {
 
 const CardContainer = ({ finalized }: Props) => {
   const [events, setEvents] = useState<Event[] | null>(null);
+  const [cleanup, setCleanup] = useState(true)
 
-  let cleanup = true;
   useEffect(() => {
     if (cleanup) {
       setEvents(eventsData.filter((event) => event.finalized === finalized));
     }
 
-    return () => {
-      cleanup = false;
-    };
-  }, []);
+    return () => setCleanup(false)
+  }, [cleanup, finalized]);
 
   return (
-    <ul className="flex flex-row sm:justify-center gap-6 px-6 lg:py-10 overflow-x-auto snap-x snap-mandatory relative w-full">
+    <ul className={`flex flex-row gap-6 px-6 lg:py-10 overflow-x-auto max-w-fit mx-auto snap-x snap-mandatory relative w-full shrink-0 ${finalized ? '[&>li]:max-w-[300px]' : '[&>li]:max-w-[700px]'}`}>
+      {/* {events && events.length > 0 && !finalized && <div className="snap-center hidden lg:flex w-full h-full min-w-[20%] max-w-[20%] bg-red-500 shrink-0" />} */}
       {events ? (
-        events?.map((event, index) => (
+        events.length > 0 ? events.reverse().map((event, index) => (
           <CardItem key={index} event={event} finalized={finalized} />
-        ))
+        )) : <p className="opacity-80 lg:text-center w-full">No hay eventos en este momento...</p>
       ) : !finalized ? (
         <li
           className="snap-center w-full sm:min-w-[600px] max-w-sm md:max-w-2xl flex flex-col border border-dashed border-gray-500/30 rounded-xl overflow-hidden transition-all shadow-md

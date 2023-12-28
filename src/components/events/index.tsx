@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import SubTitle from "../layout/subTitle";
 import CardContainer from "./cardContainer";
 
@@ -10,11 +11,15 @@ const Events = () => {
       <div className="max-w-screen-xl lg:text-center flex lg:justify-center lg:items-center px-6">
         <SubTitle>Próximos Eventos</SubTitle>
       </div>
-      <CardContainer finalized={false} />
+      <Suspense fallback={<div>Cargando proximos eventos</div>}>
+        <CardContainer finalized={false} />
+      </Suspense>
       <div className="max-w-screen-xl lg:text-center flex lg:justify-center lg:items-center px-6 pt-7">
         <SubTitle>Eventos Pasados</SubTitle>
       </div>
-      <CardContainer finalized={true} />
+      <Suspense fallback={<div>Cargando eventos anteriores</div>}>
+        <CardContainer finalized={true} />
+      </Suspense>
     </section>
   );
 };
