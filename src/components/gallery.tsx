@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import useScroll from "@/hooks/useScroll";
 import Image from "next/image";
 import React from "react";
@@ -36,15 +36,13 @@ const Gallery = () => {
               alt={`image demo-${index}`}
               width={720}
               height={480}
-              priority
-              quality={100}
               className="bg-gray-500/30 min-w-[75%] h-auto aspect-[4/3] object-cover rounded-xl pointer-events-none select-none"
             />
           </li>
         ))}
       </ul>
       <ul
-        style={{ animationPlayState: scrolled ? "running" : "paused" }}
+          style={{ animationPlayState: scrolled ? "running" : "paused" }}
         className="w-full absolute top-0 py-20 flex flex-row whitespace-nowrap animate-marquee2 lg:animate-large-marquee2"
       >
         {images.map((img, index) => (
@@ -57,8 +55,6 @@ const Gallery = () => {
               alt={`image demo-${index}`}
               width={720}
               height={480}
-              quality={100}
-              priority
               className="bg-gray-500/30 min-w-[75%] h-auto aspect-[4/3] object-cover rounded-xl pointer-events-none select-none"
             />
           </li>
