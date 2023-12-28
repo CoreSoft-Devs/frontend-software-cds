@@ -1,26 +1,30 @@
-import React, { useState } from "react";
-import { ChevronDown } from "lucide-react";
+'use client'
+import React, { Suspense } from "react";
 import { useSignInModal } from "@/hooks/useSignInModal";
 import useScroll from "@/hooks/useScroll";
 import Link from "next/link";
 import Image from "next/image";
 import hrefs, { HREF_ABOUT, HREF_CONTACT } from "@/assets/hrefs";
-import Dropdown from "@/components/shared/dropdown";
+import DropdownMenu from "./dropdownMenu";
+import { useSession } from "next-auth/react";
+import { LoadingDots } from "@/components/shared/icons";
 
 const Navbar = () => {
-  const [openPopover, setOpenPopover] = useState(false);
-  const { setShowSignModal, SignInModal } = useSignInModal();
+  const { SignInModal, setShowSignModal } = useSignInModal();
   const { scrolled } = useScroll(50);
+
+  const {status, data} = useSession()
 
   return (
     <>
-      <SignInModal />
+      <Suspense fallback={<span className="fixed inset-0 z-10">Loading...</span>}>
+        <SignInModal />
+      </Suspense>
       <div
-        className={`fixed top-0 w-full flex justify-center backdrop-blur-3xl dark:border-gray-500/30 ${
-          scrolled
-            ? "border-b bg-white/70 dark:bg-black/70 transition-all"
-            : "border-none"
-        } z-20 transition-all duration-75`}
+        className={`fixed top-0 w-full flex justify-center backdrop-blur-3xl dark:border-gray-500/30 ${scrolled
+          ? "border-b bg-white/70 dark:bg-black/70 transition-all"
+          : "border-none"
+          } z-20 transition-all duration-75`}
       >
         <nav className="px-6 flex h-16 max-w-screen-xl items-center justify-between w-full overflow-hidden">
           <Link
@@ -52,57 +56,20 @@ const Navbar = () => {
                 )
             )}
             <li>
-              <Dropdown
-                openPopover={openPopover}
-                setOpenPopover={setOpenPopover}
-                content={
-                  <div className="w-full rounded-md bg-white dark:bg-black p-2 sm:w-40">
-                    <Link
-                      href={HREF_ABOUT}
-                      className="flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-lightHover dark:hover:bg-darkHover active:bg-gray-200"
-                    >
-                      Acerca de Nosotros
-                    </Link>
-                    <Link
-                      href={HREF_CONTACT}
-                      className="flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-lightHover dark:hover:bg-darkHover active:bg-gray-200"
-                    >
-                      Contacto
-                    </Link>
-                    <button className="flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-lightHover dark:hover:bg-darkHover active:bg-gray-200">
-                      Desarrollado por
-                    </button>
-                    <button
-                      disabled={true}
-                      className="flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all"
-                    >
-                      Dashboard
-                    </button>
-                  </div>
-                }
-              >
-                <button
-                  onClick={() => setOpenPopover(!openPopover)}
-                  className={`${
-                    openPopover && "dark:text-white"
-                  } flex gap-4 w-fit items-center justify-between transition-all hover:text-black dark:hover:text-white`}
-                >
-                  <span>Nosotros</span>
-                  <ChevronDown
-                    className={`h-4 w-4 transition-transform ${
-                      openPopover ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-              </Dropdown>
+              <DropdownMenu />
             </li>
           </ul>
-          <button
+          {status === 'authenticated' ? (
+            <button onClick={() => setShowSignModal(true)} className="flex flex-row items-center gap-4 pr-6 hover:opacity-85">
+              <Image className="rounded-full" src={data.user?.image} width={26} height={26} alt={data.user?.name} />
+              <span className="whitespace-nowrap">{data.user?.name?.split(' ')[0]}</span>
+            </button>
+          ) : <button
             onClick={() => setShowSignModal(true)}
             className="rounded-full border dark:border-white bg-black text-white dark:bg-white h-8 dark:text-black px-3 sm:px-7 text-sm transition-all hover:dark:bg-gray-200 overflow-hidden whitespace-nowrap flex items-center justify-center"
           >
-            Iniciar Sesión
-          </button>
+            {status === 'loading' ? <LoadingDots /> : 'Iniciar Sesión' }
+          </button>}
         </nav>
       </div>
     </>
